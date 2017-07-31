@@ -2,23 +2,26 @@ import React from 'react'
 import Book from './Book'
 import PropTypes from 'prop-types'
 
-const BookShelf = props => (
-  <div className="bookshelf">
-    <h2 className="bookshelf-title">{props.title}</h2>
-    <div className="bookshelf-books">
-      <ol className="books-grid">
-        {props.books.map((book) => (
-          <Book
-            key={`${book.id}-${props.title}`}
-            book={book}
-            updateShelf={props.updateShelf}
-            handleClick={props.handleClick}
-          />
-        ))}
-      </ol>
+const BookShelf = props => {
+  const { title, books, updateShelf, handleClick } = props
+  return (
+    <div className="bookshelf">
+      <h2 className="bookshelf-title">{title}</h2>
+      <div className="bookshelf-books">
+        <ol className="books-grid">
+          {books.map((book) => (
+            <Book
+              key={`${book.id}-${title}`}
+              book={book}
+              updateShelf={updateShelf}
+              handleClick={handleClick}
+            />
+          ))}
+        </ol>
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 BookShelf.propTypes = {
   title: PropTypes.string.isRequired,

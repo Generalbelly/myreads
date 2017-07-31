@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const ShowDetail = (props) => {
   const { book } = props
@@ -26,6 +27,10 @@ const ShowDetail = (props) => {
       </div>
     </div>
   )
+}
+
+ShowDetail.propTypes = {
+  book: PropTypes.object.isRequired,
 }
 
 export default ShowDetail
