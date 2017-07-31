@@ -172,3 +172,63 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+/* detail page*/
+
+.show-detail {
+  margin: 0 30px 30px 30px;
+}
+
+.show-detail-title, .show-detail-author {
+  margin-left: 50px;
+}
+
+.show-detail-box {
+  display: flex;
+}
+
+.show-detail-bookcover, .show-detail-description {
+  width: 50%;
+}
+
+.show-detail-bookcover {
+  text-align: center;
+}
+
+.show-detail-bookcover>img {
+  margin-top: 30px;
+  width: 70%;
+}
+
+.show-detail-description {
+  padding-left: 50px;
+}
+
+.show-detail-description>p {
+  font-weight: 700;
+}
+
+.show-detail-preview {
+  margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+
+  .show-detail-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .show-detail-bookcover, .show-detail-description {
+    width: 100%;
+  }
+
+  .show-detail-title, .show-detail-author {
+    margin: 0;
+  }
+
+  .show-detail-description {
+    padding: 0;
+  }
+
+}
