@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 const SearchBooks = props => {
   const { books, query, updateShelf, handleClick, updateQuery } = props
   let result = null;
-  if (query != '' && books.length === 0) {
+  if (query !== '' && books.length === 0) {
     result = (<div>{`Sorry, no matches found for ${query}`}</div>)
   } else {
     result = (<ol className="books-grid">
@@ -39,7 +39,7 @@ const SearchBooks = props => {
             placeholder="Search by title or author"
             value={query}
             onChange={(event) => {
-              updateQuery(event.target.value.trim())
+              updateQuery(event.target.value)
             }}
           />
         </div>
