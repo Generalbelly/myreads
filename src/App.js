@@ -36,25 +36,25 @@ class BooksApp extends Component {
 
   updateShelf = (book, shelf) => {
     const bookToUpdate = { ...book, shelf: shelf }
-    this.setState((prevState) => {
-      const index = prevState.books.findIndex(book => (book.id === bookToUpdate.id))
-      let books = null
-      if (index !== -1) {
-        books = [
-          ...prevState.books.slice(0, index),
-          bookToUpdate,
-          ...prevState.books.slice(index + 1),
-        ]
-      } else {
-        books = [
-          ...prevState.books.slice(),
-          bookToUpdate,
-        ]
-      }
-      return { books: books }
-    });
-
-    BooksAPI.update(bookToUpdate, shelf)
+    BooksAPI.update(bookToUpdate, shelf).then(() => {
+      this.setState((prevState) => {
+        const index = prevState.books.findIndex(book => (book.id === bookToUpdate.id))
+        let books = null
+        if (index !== -1) {
+          books = [
+            ...prevState.books.slice(0, index),
+            bookToUpdate,
+            ...prevState.books.slice(index + 1),
+          ]
+        } else {
+          books = [
+            ...prevState.books.slice(),
+            bookToUpdate,
+          ]
+        }
+        return { books: books }
+      })      
+    })
   }
 
   goToDetail = (book, history, fromSearch) => {
